@@ -627,23 +627,26 @@ backgroundImage.src = './assets/backgrounds/sky_forest_mountains.png';
     }
   }
 
-  function drawWorld() {
-    ctx.clearRect(0,0,W,H);
-   // ฉากหลัง Pixel Art
-if (backgroundImage.complete && backgroundImage.naturalWidth > 0) {
-  ctx.drawImage(
-    backgroundImage,
-    0,
-    0,
-    W,
-    H
-  );
-} else {
-  // สีสำรองระหว่างรอภาพโหลด
-  rect(0, 0, W, H, '#63c6df');
-}
+ function drawWorld() {
+  ctx.clearRect(0, 0, W, H);
 
-    platforms.forEach(drawPlatform);
+  // ฉากหลัง Pixel Art ใหม่
+  if (
+    backgroundImage.complete &&
+    backgroundImage.naturalWidth > 0
+  ) {
+    ctx.drawImage(
+      backgroundImage,
+      0,
+      0,
+      W,
+      H
+    );
+  } else {
+    rect(0, 0, W, H, '#63c6df');
+  }
+
+  platforms.forEach(drawPlatform);
 
     // foreground scenery anchored to world
     for(let i=0;i<26;i++) {
