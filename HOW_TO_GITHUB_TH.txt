@@ -1,0 +1,37 @@
+วิธีนำเกมขึ้น GitHub Pages แบบทีละขั้น
+
+1) แตกไฟล์ ZIP
+- แตก tiny-workshop-island.zip
+- ต้องเห็น index.html, style.css, game.js, README.md และโฟลเดอร์ assets
+
+2) เข้า github.com
+- สมัครหรือเข้าสู่ระบบ
+
+3) สร้าง Repository
+- กด New
+- Repository name: tiny-workshop-island
+- เลือก Public
+- กด Create repository
+
+4) อัปโหลดเกม
+- กด Add file > Upload files
+- ลากทุกไฟล์และโฟลเดอร์ใน tiny-workshop-island เข้าไป
+- ต้องอัปโหลดโฟลเดอร์ assets ด้วย
+- กด Commit changes
+
+5) เปิด GitHub Pages
+- Settings > Pages
+- Source: Deploy from a branch
+- Branch: main
+- Folder: /(root)
+- Save
+
+6) รอเว็บสร้าง
+- ประมาณ 1–3 นาที
+- กลับมาที่ Settings > Pages
+- จะเห็นลิงก์เว็บไซต์ เช่น https://USERNAME.github.io/tiny-workshop-island/
+
+7) เวลาแก้เกม
+- อัปโหลดไฟล์ใหม่แทนไฟล์เดิม หรือแก้ไฟล์บน GitHub
+- กด Commit changes
+- GitHub Pages จะอัปเดตเว็บไซต์เอง

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#5aa8c8" />
+  <title>เกาะช่างจิ๋ว : ภารกิจเปิดเวิร์กช็อป</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell" id="app" tabindex="0">
+    <section class="hud" aria-label="ข้อมูลเกม">
+      <div class="mission-box"><span class="star">★</span><span>ภารกิจ:</span> <b id="missionText">เตรียมตัวออกผจญภัย</b></div>
+      <div class="hud-actions">
+        <button id="bookBtn" class="pixel-button small" type="button">📘 สมุดเครื่องมือ</button>
+        <button id="soundBtn" class="pixel-button small" type="button">🔊 เสียง</button>
+        <button id="restartBtn" class="pixel-button small" type="button">↻ เริ่มใหม่</button>
+      </div>
+    </section>
+
+    <div class="progress-track" aria-label="ความคืบหน้า"><div id="progressFill" class="progress-fill"></div></div>
+
+    <section class="stage-wrap">
+      <canvas id="game" width="960" height="540" aria-label="เกมเกาะช่างจิ๋ว"></canvas>
+
+      <section id="startScreen" class="overlay start-overlay">
+        <div class="cover-panel">
+          <img src="assets/cover.png" alt="ภาพตัวอย่างบรรยากาศเกาะช่างจิ๋ว" class="cover-image" />
+          <div class="setup-card">
+            <h1>เกาะช่างจิ๋ว</h1>
+            <p class="en-title">TINY WORKSHOP ISLAND</p>
+            <p>เลือกตัวละคร ตั้งชื่อ แล้วออกช่วยครูไม้เตรียมเวิร์กช็อปให้พร้อม</p>
+            <div class="character-grid">
+              <button id="femaleBtn" class="character-choice selected" type="button" aria-pressed="true">
+                <canvas id="femalePreview" width="96" height="96"></canvas>
+                <span>นักเรียนหญิง</span>
+              </button>
+              <button id="maleBtn" class="character-choice" type="button" aria-pressed="false">
+                <canvas id="malePreview" width="96" height="96"></canvas>
+                <span>นักเรียนชาย</span>
+              </button>
+            </div>
+            <label class="name-label" for="playerName">ชื่อตัวละคร</label>
+            <input id="playerName" class="name-input" maxlength="12" placeholder="เช่น ต้นข้าว" autocomplete="off" />
+            <p id="nameHint" class="hint">ใช้ชื่อภาษาไทยหรืออังกฤษได้ 1–12 ตัวอักษร</p>
+            <button id="startBtn" class="pixel-button primary" type="button">เริ่มการผจญภัย ▶</button>
+          </div>
+        </div>
+      </section>
+
+      <div id="toast" class="toast hidden" role="status"></div>
+
+      <section id="dialog" class="dialog hidden" role="dialog" aria-live="polite">
+        <div id="speaker" class="speaker"></div>
+        <div id="dialogText" class="dialog-text"></div>
+        <div id="choices" class="choices"></div>
+      </section>
+
+      <section id="modal" class="overlay hidden" aria-live="polite"></section>
+    </section>
+
+    <section class="controls">
+      <div class="desktop-help">
+        <b>คอมพิวเตอร์:</b> A/D หรือ ←/→ = เดิน · W/Space/↑ = กระโดด · E = สำรวจ<br>
+        เดินตามป้าย <b>!</b> สีเหลืองเพื่อทำภารกิจ
+      </div>
+      <div class="touch-controls" aria-label="ปุ่มควบคุมมือถือ">
+        <div class="direction-buttons">
+          <button class="round-control" type="button" data-move="left" aria-label="เดินซ้าย">←</button>
+          <button class="round-control" type="button" data-move="right" aria-label="เดินขวา">→</button>
+        </div>
+        <button id="jumpBtn" class="round-control jump" type="button">กระโดด</button>
+        <button id="interactBtn" class="round-control interact" type="button">สำรวจ</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
