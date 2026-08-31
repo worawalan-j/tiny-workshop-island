@@ -6,7 +6,7 @@
   
 // ภาพฉากหลัง Pixel Art
 const backgroundImage = new Image();
-backgroundImage.src = './assets/backgrounds/sky_forest_mountains.png';
+backgroundImage.src = './sky_forest_mountains.png';
   
   const missionText = document.getElementById('missionText');
   const progressFill = document.getElementById('progressFill');
