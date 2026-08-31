@@ -3,7 +3,11 @@
   const canvas = document.getElementById('game');
   const ctx = canvas.getContext('2d');
   ctx.imageSmoothingEnabled = false;
-
+  
+// ภาพฉากหลัง Pixel Art
+const backgroundImage = new Image();
+backgroundImage.src = './assets/backgrounds/sky_forest_mountains.png';
+  
   const missionText = document.getElementById('missionText');
   const progressFill = document.getElementById('progressFill');
   const startScreen = document.getElementById('startScreen');
@@ -625,26 +629,19 @@
 
   function drawWorld() {
     ctx.clearRect(0,0,W,H);
-    // sky
-    rect(0,0,W,H,'#63c6df');
-    rect(0,0,W,82,'#6ad0e6');
-    // pixel sun glow
-    rect(742,44,58,58,'#f3db78'); rect(750,36,42,74,'#f6e695'); rect(734,52,74,42,'#f6e695');
-    // clouds with slow parallax
-    for (let i=0;i<7;i++) cloud(((i*255 - cameraX*0.08) % 1250)-120, 58+(i%3)*48, 0.75+(i%2)*0.2);
-    // distant mountains and forests
-    drawMountainLayer(cameraX*0.08,'#8bd0c5',270,92,270);
-    drawMountainLayer(cameraX*0.15,'#55a68b',338,115,230);
-    drawMountainLayer(cameraX*0.23,'#2e7d5c',392,86,170);
-    // forest layers
-    for (let i=0;i<20;i++) {
-      const x=((i*210-cameraX*0.32)%4400)-130;
-      pine(x,425,0.9+(i%3)*0.12,['#176044','#257a4c','#3b9559']);
-    }
-    for (let i=0;i<11;i++) {
-      const x=((i*410-cameraX*0.55)%4700)-220;
-      broadTree(x,455,0.85+(i%2)*0.1);
-    }
+   // ฉากหลัง Pixel Art
+if (backgroundImage.complete && backgroundImage.naturalWidth > 0) {
+  ctx.drawImage(
+    backgroundImage,
+    0,
+    0,
+    W,
+    H
+  );
+} else {
+  // สีสำรองระหว่างรอภาพโหลด
+  rect(0, 0, W, H, '#63c6df');
+}
 
     platforms.forEach(drawPlatform);
 
