@@ -627,26 +627,7 @@ backgroundImage.src = './sky_forest_mountains.png';
     }
   }
 
- function drawWorld() {
-  ctx.clearRect(0, 0, W, H);
 
-  // ฉากหลัง Pixel Art ใหม่
-  if (
-    backgroundImage.complete &&
-    backgroundImage.naturalWidth > 0
-  ) {
-    ctx.drawImage(
-      backgroundImage,
-      0,
-      0,
-      W,
-      H
-    );
-  } else {
-    rect(0, 0, W, H, '#63c6df');
-  }
-
-  platforms.forEach(drawPlatform);
 
     // foreground scenery anchored to world
     for(let i=0;i<26;i++) {
@@ -676,6 +657,7 @@ backgroundImage.src = './sky_forest_mountains.png';
       if(sx>-300&&sx<W+300) pixelText(t,sx,32,13,'#fff1c2','center');
     });
   }
+ platforms.forEach(drawPlatform);
 
   function collidePlatforms(oldY) {
     player.onGround = false;
